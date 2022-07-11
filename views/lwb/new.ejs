@@ -1,0 +1,43 @@
+<%- include('../partials/head.ejs') %>
+
+
+<div class="container">
+    <div class="text-center">
+        <h1>Add New Service</h1>
+    </div>
+    <div class="row justify-content-center my-5">
+        <div class="col-lg-6">
+            <form action="<%=baseUrl%>" method="post">
+                <label for="title" class="form-label" >Service</label>
+                <input type="text" name="title" id="service" placeholder="service" class="form-control">
+
+                <label for="phone"class="form-label">Phone</label>
+                <input type="number" name="phone" class="form-control" id="phone">
+
+                <label for="email"class="form-label">Email</label>
+                <input type="text" name="email" class="form-control" id="email" placeholder="my@email.com">
+
+                <label for="location"class="form-label">Adress</label>
+                <input type="text" name="location" class="form-control" id="location">
+
+                <label for="description"class="form-label">Desciption</label>
+                <textarea name="description" class="form-control" id="description" cols="30" rows="10"></textarea>
+                <label for="image"class="form-label">Images</label>
+                <input type="text" name="imageURL" class="form-control" id="imageURL">
+
+
+                <div class="text-end my-3">
+
+
+                <input type="submit" class="btn btn-success" value="Create Service">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<%- include('../partials/footer.ejs') %>

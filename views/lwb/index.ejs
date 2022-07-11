@@ -1,0 +1,27 @@
+<%- include('../partials/head.ejs') %>
+<div class="container">
+    <div class="row g-5 ">
+    <%for(let service of services){%>
+
+            <div class="col ">
+                <div class="card text-bg-light h-100 shadow-lg" style="width:18rem;">
+                    <img src="<%=service.imageURL%>" class="card-img-top img-fluid" alt="service images">
+                    <div class="card-body">
+                      <h5 class="card-header text-center"><%=service.title%></h5>
+                      <p class="card-text text-center mt-5"><%=service.description%></p>
+                    </div>
+                    <div class="card-body text-end">
+                      <a href="<%=baseUrl%>/<%=service.id%>" class="btn btn-primary ">Details</a>
+                    </div>
+                    <div class="card-footer text-end">
+                      <form action="<%=baseUrl%>/<%=service.id%>?_method=DELETE" method="post">
+                      <input type="submit" class="btn btn-danger"  value="Delete">
+                      </form>
+                    </div>
+                  </div>
+             </div>
+
+    <%}%>
+    </div>
+</div>
+<%- include('../partials/footer.ejs') %>

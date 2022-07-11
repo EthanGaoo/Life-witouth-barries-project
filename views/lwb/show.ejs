@@ -1,0 +1,17 @@
+<%- include('../partials/head.ejs') %>
+
+<img src="<%=service.imageURL%>" alt="service image">
+<h2><%=service.title%></h2>
+<h2>Phone: <%=service.phone%></h2>
+<h2>Email: <%=service.email%></h2>
+<h2>Address: </Address><%=service.location%></h2>
+<h2>Description: <%=service.description%></h2>
+<a href="<%=baseUrl%>">Back</a>
+<form action="<%=baseUrl%>/<%=service.id%>?_method=DELETE" method="post">
+    <input type="submit" class="btn btn-danger" value="Delete">
+</form>
+<a href="<%=baseUrl%>/<%=service.id%>/edit">Edit Service</a>
+<div>
+    <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:<%=service.googleID%>&key=AIzaSyCY0hoejDASnmYDlZMBSTZ5cEUIO4m8Qjw"></iframe>
+</div>
+<%- include('../partials/footer.ejs') %>

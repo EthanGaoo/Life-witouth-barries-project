@@ -1,0 +1,38 @@
+<%- include('../partials/head.ejs') %>
+
+<div >
+  <h1>Sign Up</h1>
+
+  <div >
+    <% if (messages.success) { %>
+      <% for (let msg of messages.success) { %>
+        <div class="alert alert-success" role="alert">
+          <p ><%= msg %></p>
+        </div>
+      <% } %>
+    <% } %>
+    <% if (messages.info) { %>
+      <% for (let msg of messages.info) { %>
+        <div class="alert alert-info" role="alert">
+          <p ><%= msg %></p>
+        </div>
+      <% } %>
+    <% } %>
+    <% if (messages.error) { %>
+      <% for (let msg of messages.error) { %>
+        <div class="alert alert-danger" role="alert">
+          <p ><%= msg %></p>
+        </div>
+      <% } %>
+    <% } %>
+  </div>
+
+  <form action="<%= baseUrl %>" method="post">
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" required />
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required />
+    <input class="btn btn-success" type="submit" value="Sign Up" />
+  </form>
+</div>
+<%- include('../partials/footer.ejs') %>
