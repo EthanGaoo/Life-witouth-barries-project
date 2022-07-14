@@ -31,9 +31,13 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.static('public'))
 app.use(methodOverride('_method'))
 
+app.use('/',(req,res)=>{
+ res.redirect('/services/lwb')
+})
+app.use('/',sessionsController)
 app.use('/services/lwb',lwbController)
 app.use('/users',userController)
-app.use('/',sessionsController)
+
 
 
 mongoose.connect(dbURL,()=>{
