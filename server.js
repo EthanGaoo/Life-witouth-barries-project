@@ -33,12 +33,11 @@ app.use(methodOverride('_method'))
 
 
 app.use('/',sessionsController)
+app.use('/services/lwb',lwbController)
+app.use('/users',userController)
 app.use('/',(req,res)=>{
     res.redirect('/login')
 })
-app.use('/services/lwb',lwbController)
-app.use('/users',userController)
-
 
 
 mongoose.connect(dbURL,()=>{
