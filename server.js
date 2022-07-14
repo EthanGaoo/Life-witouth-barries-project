@@ -31,10 +31,11 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.static('public'))
 app.use(methodOverride('_method'))
 
-app.use('/',(req,res)=>{
- res.redirect('/login')
-})
+
 app.use('/',sessionsController)
+app.use('/',(req,res)=>{
+    res.redirect('/login')
+})
 app.use('/services/lwb',lwbController)
 app.use('/users',userController)
 
