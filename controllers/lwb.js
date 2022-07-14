@@ -139,11 +139,13 @@ serviceRouter.get('/new',(req,res)=>{
     })
 })
 serviceRouter.post('/',upload.single('image'),(req,res)=>{
+    req.body.imageURL=req.file.path
     place(req.body.location)
     .then((data)=>{
         req.body.placeID=data
     Service.create(req.body)
-    .then(()=>{
+    .then((data)=>{
+        console.log(data)
         res.redirect(req.baseUrl)
     })
     })
@@ -153,7 +155,6 @@ serviceRouter.get('/:id',(req,res)=>{
     Service.findById(req.params.id)
     .exec()
     .then((service)=>{
-
         place(service.location)
         .then((data)=>{
             service.placeID=data
@@ -189,17 +190,17 @@ serviceRouter.get('/:id/edit',(req,res)=>{
     })
    })
 })
-serviceRouter.put('/:id',(req,res)=>{
-    place(req.body.location)
-    .then((data)=>{
-        req.body.placeID=data
-        Service.findByIdAndUpdate(req.params.id,req.body)
+serviceRouter.put('/:id',upload.single('image'),(req,res)=>{
+    console.log(req.body)
+    req.body.imageURL=req.file.path
+    Service.findByIdAndUpdate(req.params.id,req.body)
     .exec()
-    .then(()=>{
+    .then((data)=>{
+        // console.log(data)
         res.redirect(req.baseUrl)
     })
     })
-})
+
 
 
 serviceRouter.get('/',(req,res)=>{

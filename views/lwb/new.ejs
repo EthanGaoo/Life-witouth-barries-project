@@ -7,7 +7,7 @@
     </div>
     <div class="row justify-content-center my-5">
         <div class="col-lg-6 ">
-            <form action="<%=baseUrl%>" method="post">
+            <form action="<%=baseUrl%>" method="post" enctype="multipart/form-data">
                     <div class="form-floating mb-3">
                     <input type="text" name="title" id="service" placeholder="service" class="form-control" required/>
                     <label for="title" class="form-label" >Service</label>
@@ -33,7 +33,7 @@
 
                 <label for="description"class="form-label mt-2">Desciption</label>
                 <textarea name="description" class="form-control" id="description" cols="30" rows="10"></textarea>
-                <label for="image"class="form-label mt-2">Images</label>
+                <label for="imageURL"class="form-label mt-2">Image</label>
                 <input type="file" name="image" class="form-control" id="imageURL">
 
 
