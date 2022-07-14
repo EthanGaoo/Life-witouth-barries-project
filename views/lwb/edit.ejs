@@ -6,25 +6,38 @@
     </div>
     <div class="row justify-content-center my-5">
         <div class="col-lg-6">
-            <form action="<%=baseUrl%>" method="post">
+            <form action="<%=baseUrl%>/<%=service.id%>?_method=PUT" method="post">
+
+                <div class="form-floating mb-3">
+                <input type="text" name="title" id="service" placeholder="service" class="form-control" required/>
                 <label for="title" class="form-label" >Service</label>
-                <input type="text" name="title" id="service" placeholder="service" class="form-control">
+                </div>
+                <div class="form-floating mb-3">
+                <input type="text" name="phone" class="form-control" placeholder="Phone" id="phone" required/>
+                <label for="phone"class="form-label ">Phone</label>
+                </div>
+                <div class="form-floating mb-3">
+                <input type="text" name="email" class="form-control" id="email" placeholder="my@email.com" required/>
+                <label for="email"class="form-label ">Email</label>
+                </div>
 
-                <label for="phone"class="form-label">Phone</label>
-                <input type="number" name="phone" class="form-control" id="phone">
+                <div class="form-floating mb-3">
+                <input type="text" name="location" class="form-control" placeholder="Address" id="location" value="<%=service.location%>" required/>
+                <label for="location"class="form-label">Address</label>
+                </div>
 
-                <label for="email"class="form-label">Email</label>
-                <input type="text" name="email" class="form-control" id="email" placeholder="my@email.com">
+                <label for="greatArea"class="form-label">Great Area</label>
+                <input type="text" name="greatArea" class="form-control" placeholder="Sydney,Melbourne,Adelaide,Brisbane,Perth" id="greatArea" required/>
 
-                <label for="location"class="form-label">Adress</label>
-                <input type="text" name="location" class="form-control" id="location">
-
-                <label for="description" class="form-label">Desciption</label>
+                <label for="description" class="form-label mt-3">Desciption:</label>
                 <textarea name="description" class="form-control" id="description" cols="30" rows="10"></textarea>
+
+                <div class="mt-2">
+                <input type="file" name="image" class="form-control" id="imageURL">
+                </div>
+
                 <div class="text-end my-3">
-
-
-                <input type="submit" class="btn btn-success" value="Create Service">
+                <input type="submit" class="btn btn-success" value="Edit Service">
                 </div>
             </form>
         </div>

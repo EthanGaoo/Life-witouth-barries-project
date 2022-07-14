@@ -5,18 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
   <title><%= tabTitle %></title>
   <style>
   </style>
 </head>
 <body>
+  <script src="https://kit.fontawesome.com/24b4043333.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
   <header>
 <% if (currentUser) {%>
-  <nav class="navbar navbar-expand-lg bg-light">
+  <nav class="navbar navbar-expand-lg bg-light ">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Life Witout Barriers</a>
+      <a class="navbar-brand" href="#">Life Without Gap</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -29,7 +31,16 @@
             <a class="nav-link" href="<%= baseUrl %>/new">Add New Service</a>
           </li>
           <li class="nav-item dropdown">
-
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Area
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/services/lwb/search/Adelaide">Great Adelaide</a></li>
+              <li><a class="dropdown-item" href="/services/lwb/search/Melbourne">Great Melbourne</a></li>
+              <li><a class="dropdown-item" href="/services/lwb/search/Sydney">Great Sydeney</a></li>
+              <li><a class="dropdown-item" href="/services/lwb/search/Perth">Great Perth</a></li>
+              <li><a class="dropdown-item" href="/services/lwb/search/Brisbane">Great Brisbane</a></li>
+            </ul>
           </li>
         </ul>
         <form class="d-flex" role="search" action="/services/lwb/search" method="get">
@@ -43,7 +54,61 @@
     </div>
   </nav>
   <% } else { %>
-    <a class="nav-link ms-3 my-1" href="/login">Log In</a>
+
+    <style>html {
+      height:100%;
+    }
+
+    body {
+      margin:0;
+    }
+
+    .bg {
+      animation:slide 3s ease-in-out infinite alternate;
+      background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+      bottom:0;
+      left:-50%;
+      opacity:.5;
+      position:fixed;
+      right:-50%;
+      top:0;
+      z-index:-1;
+    }
+
+    .bg2 {
+      animation-direction:alternate-reverse;
+      animation-duration:4s;
+    }
+
+    .bg3 {
+      animation-duration:5s;
+    }
+
+    .content {
+      background-color:rgba(255,255,255,.8);
+      border-radius:.25em;
+      box-shadow:0 0 .25em rgba(0,0,0,.25);
+      box-sizing:border-box;
+      left:50%;
+      padding:10vmin;
+      position:fixed;
+      text-align:center;
+      top:50%;
+      transform:translate(-50%, -50%);
+    }
+
+    h1 {
+      font-family:monospace;
+    }
+
+    @keyframes slide {
+      0% {
+        transform:translateX(-25%);
+      }
+      100% {
+        transform:translateX(25%);
+      }
+    }</style>
   <% } %>
 
 
