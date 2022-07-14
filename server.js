@@ -32,7 +32,7 @@ app.use(express.static('public'))
 app.use(methodOverride('_method'))
 
 app.use('/',(req,res)=>{
- res.redirect('/services/lwb')
+ res.redirect('/login')
 })
 app.use('/',sessionsController)
 app.use('/services/lwb',lwbController)
