@@ -1,6 +1,9 @@
 {
   "name": "life-without-barrise",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.4.0"
+  },
   "description": "server.js",
   "main": "server.js",
   "scripts": {
